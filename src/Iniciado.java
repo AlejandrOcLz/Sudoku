@@ -1,21 +1,38 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 
 public class Iniciado extends JFrame{
 	
 	JTextField[] cuadros = new JTextField[81];
 	
+	JPopupMenu jpsugerencias = new JPopupMenu();
+	
+	JLabel jsugerencias1 = new JLabel();
+	
 	JButton Undo;
 	JButton Redo;
 	
 	String Nombre;
 	int x,y;
+	
+	int t;
+	
+	int contador;
+	int algo ;
+	
+	String verificar = "";
 
 	public Iniciado() {
 		super ("SUDOKU");
@@ -33,17 +50,93 @@ public class Iniciado extends JFrame{
 	
 	private void GUI() {
 		x = y = 90;
-		int contador=0;
+		contador=0;
+		
+		JMenuItem uno = new JMenuItem("1");  
+        JMenuItem dos = new JMenuItem("2");  
+        JMenuItem tres = new JMenuItem("3");  
+        JMenuItem cuatro = new JMenuItem("4");  
+        JMenuItem cinco = new JMenuItem("5");  
+        JMenuItem seis = new JMenuItem("6"); 
+        JMenuItem siete = new JMenuItem("7");  
+        JMenuItem ocho = new JMenuItem("8");  
+        JMenuItem nueve = new JMenuItem("9"); 
+		
 		for(int i = 0; i < 9; i++) {
 			for(int c = 0; c < 9; c++) {
 				cuadros[contador] = new JTextField();
 				cuadros[contador].setBounds(x,y,30,30);
+				
 				if((i < 3 && (c < 3 || c > 5)) || (i > 5 && (c < 3 || c > 5)) || ((i > 2 && i < 6) && (c > 2 && c < 6))) {
 					cuadros[contador].setBackground(new Color(232,232,232));
 				}
+				
+				t = contador;
 				cuadros[contador].setHorizontalAlignment(JTextField.CENTER);
+				cuadros[contador].addMouseListener(new MouseAdapter() {  
+		            public void mouseReleased(MouseEvent e) {   
+		            	if(e.isPopupTrigger()) {
+		            		algo = contador;
+		            		System.out.print(e.getX());
+			            	jpsugerencias.show(e.getComponent() , e.getX(), e.getY()); 
+			            	 String sug = "";
+				        		for(int i = 0; i < 9; i++) {
+				        			if(t < 9) {
+				        	        	t = t * 9;
+				        	        	 
+				        	        }
+				        			
+				        			verificar += cuadros[t].getText();
+				        				
+				        		}
+
+		            	}
+		            	 
+		            }                 
+		         }); 
+				
+				if(!verificar.contains("1")) {
+    				jpsugerencias.add(uno);
+    			}
+    			if(!verificar.contains("2")) {
+    				jpsugerencias.add(dos);
+    			}
+    			if(!verificar.contains("3")) {
+    				jpsugerencias.add(tres);
+    			}
+    			if(!verificar.contains("4")) {
+    				jpsugerencias.add(cuatro);
+    			}
+    			if(!verificar.contains("5")) {
+    				jpsugerencias.add(cinco);
+    			}
+    			if(!verificar.contains("6")) {
+    				jpsugerencias.add(seis);
+    			}
+    			if(!verificar.contains("7")) {
+    				jpsugerencias.add(siete);
+    			}
+    			if(!verificar.contains("8")) {
+    				jpsugerencias.add(ocho);
+    			}
+    			if(!verificar.contains("9")) {
+    				jpsugerencias.add(nueve);
+    			}
+    			
+				verificar="";
+				/*uno.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						cuadros[algo].setText("1");
+						
+					}
+				});*/
+				
+				add(jpsugerencias);
 				add(cuadros[contador]);
 				x += 30;
+				
 				contador++;
 			}
 			x = 90;
@@ -71,6 +164,15 @@ public class Iniciado extends JFrame{
 		JLabel jsugerencias = new JLabel("SUGERENCIAS: ");
 		jsugerencias.setBounds(90,450,100,30);
 		add(jsugerencias);
+		
+		
+		jsugerencias1.setBounds(200,450,200,30);
+		add(jsugerencias1);
+		
+	}
+	
+	public void eventoSugerencia(MouseEvent e, int c) {
+		
 		
 	}
 
