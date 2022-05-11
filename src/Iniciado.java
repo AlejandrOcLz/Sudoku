@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -20,7 +21,7 @@ public class Iniciado extends JFrame {
 	JTextField[][] cuadros = new JTextField[9][9];
 	JPopupMenu jpsugerencias = new JPopupMenu();
 
-	JLabel jsugerencias1 = new JLabel();
+	JLabel jsugerencias1;
 
 	JButton Undo;
 	JButton Redo;
@@ -36,11 +37,10 @@ public class Iniciado extends JFrame {
 	int c = 0;
 	int i = 0;
 
-	JTextArea c78;
 
 	String verificar = "";
-	int i_selected = 0;
-	int c_selected = 0;
+	int i2 = 0;
+	int c2 = 0;
 	String number = "";
 
 	public Iniciado() {
@@ -58,9 +58,12 @@ public class Iniciado extends JFrame {
 	}
 
 	private void GUI() {
-
+		
+		jsugerencias1 = new JLabel();
 		x = y = 90;
 		contador = 0;
+		
+		
 
 		JMenuItem uno = new JMenuItem("1");
 		JMenuItem dos = new JMenuItem("2");
@@ -71,7 +74,8 @@ public class Iniciado extends JFrame {
 		JMenuItem siete = new JMenuItem("7");
 		JMenuItem ocho = new JMenuItem("8");
 		JMenuItem nueve = new JMenuItem("9");
-
+		
+		
 		for (i = 0; i < 9; i++) {
 			for (c = 0; c < 9; c++) {
 				cuadros[i][c] = new JTextField();
@@ -84,12 +88,11 @@ public class Iniciado extends JFrame {
 
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
-				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], ":v"));
+				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jpsugerencias, this, jsugerencias1));
 
 				verificar = "";
 
 				add(jpsugerencias);
-				jpsugerencias.removeAll();
 				add(cuadros[i][c]);
 				x += 30;
 
@@ -98,7 +101,7 @@ public class Iniciado extends JFrame {
 			x = 90;
 			y += 30;
 		}
-
+	
 		Icon img = new ImageIcon(getClass().getResource("/Image/icons8-undo-48.png"));
 
 		Undo = new JButton(img);
