@@ -13,12 +13,12 @@ import javax.swing.JTextField;
 
 public class Click implements MouseListener {
 
-	JTextField cuadro;
+	public JTextField cuadro;
 	JTextField[][] cuadros;
 
-	int i, c;
+	public int i, c;
 	
-	JButton js1;
+	public JButton js1;
 	JButton js2;
 	JButton js3;
 	JButton js4;
@@ -29,9 +29,10 @@ public class Click implements MouseListener {
 	JButton js9;
 
 	JLabel jsugerencias1;
+	ClickButton click;
 
 
-	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9) {
+	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9, ClickButton click) {
 		this.cuadro = cuadro;
 		this.cuadros = cuadros;
 		this.i = i;
@@ -46,6 +47,8 @@ public class Click implements MouseListener {
 		this.js7 = js7;
 		this.js8 = js8;
 		this.js9 = js9;
+		this.click = click;
+
 		
 	}
 
@@ -75,20 +78,19 @@ public class Click implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-
-		if (arg0.isPopupTrigger()) {
-			
-			
+		click.setValues(cuadro);
+		//if (arg0.isPopupTrigger()) {
 			
 			String ver = "";
 			//jpsugerencias.
-			System.out.println("i = " + i + " c = " + c);
+			
 			String sug = "";
+			
 			for (int i1 = 0; i1 < 9; i1++) {
 				sug += cuadros[i][i1].getText();
 				sug += cuadros[i1][c].getText();
 			}
-			//
+			
 			if(i < 3 && c < 3) {
 				for(int i1 = 0; i1 < 3; i1++){
 					for(int c1 = 0; c1 < 3; c1++){
@@ -161,18 +163,8 @@ public class Click implements MouseListener {
 				}
 			}
 			
-			
-			//
-			
 			if (!sug.contains("1")) {
 				js1.setEnabled(true);
-				js1.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js1.setEnabled(false);
-						cuadro.setText("1");
-					}
-				});
 				
 				
 				ver += "1 ";
@@ -183,15 +175,7 @@ public class Click implements MouseListener {
 
 			if (!sug.contains("2")) {
 				js2.setEnabled(true);
-				js2.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js2.setEnabled(false);
-						cuadro.setText("2");
-					}
-				});
-				
-
+				System.out.println("i = " + i + " c = " + c);
 				ver += "2 ";
 			}else {
 				js2.setEnabled(false);
@@ -199,14 +183,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("3")) {
 				js3.setEnabled(true);
-				js3.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js3.setEnabled(false);
-						cuadro.setText("3");
-					}
-				});
-				
 				
 				ver += "3 ";
 			}else {
@@ -215,13 +191,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("4")) {
 				js4.setEnabled(true);
-				js4.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js4.setEnabled(false);
-						cuadro.setText("4");
-					}
-				});
 				
 				
 				ver += "4 ";
@@ -231,13 +200,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("5")) {
 				js5.setEnabled(true);
-				js5.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js5.setEnabled(false);
-						cuadro.setText("5");
-					}
-				});
 				 
 				ver += "5 ";
 			}else {
@@ -246,13 +208,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("6")) {
 				js6.setEnabled(true);
-				js6.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js6.setEnabled(false);
-						cuadro.setText("6");
-					}
-				});
 				
 				ver += "6 ";
 			}else {
@@ -261,13 +216,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("7")) {
 				js7.setEnabled(true);
-				js7.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js7.setEnabled(false);
-						cuadro.setText("7");
-					}
-				});
 				
 				ver += "7 ";
 			}else {
@@ -276,13 +224,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("8")) {
 				js8.setEnabled(true);
-				js8.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js8.setEnabled(false);
-						cuadro.setText("8");
-					}
-				});
 				
 				ver += "8 ";
 			}else {
@@ -291,13 +232,6 @@ public class Click implements MouseListener {
 			
 			if (!sug.contains("9")) {
 				js9.setEnabled(true);
-				js9.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						js9.setEnabled(false);
-						cuadro.setText("9");
-					}
-				});
 				
 				ver += "9 ";
 			}else {
@@ -313,6 +247,6 @@ public class Click implements MouseListener {
 		
 		
 		
-	}
+	//}
 
 }

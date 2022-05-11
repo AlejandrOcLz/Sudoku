@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -25,6 +26,15 @@ public class Iniciado extends JFrame {
 
 	JButton Undo;
 	JButton Redo;
+	public JButton js1;
+	public JButton js2;
+	public JButton js3;
+	public JButton js4;
+	public JButton js5;
+	public JButton js6;
+	public JButton js7;
+	public JButton js8;
+	public JButton js9;
 
 	String Nombre;
 	int x, y;
@@ -36,7 +46,6 @@ public class Iniciado extends JFrame {
 
 	int c = 0;
 	int i = 0;
-
 
 	String verificar = "";
 	int i2 = 0;
@@ -58,39 +67,39 @@ public class Iniciado extends JFrame {
 	}
 
 	private void GUI() {
-		
+
 		jsugerencias1 = new JLabel();
 		x = y = 90;
 		contador = 0;
-		
-		JButton js1 = new JButton("1");
+
+		js1 = new JButton("1");
 		js1.setBounds(180, 450, 50, 30);
 		js1.setEnabled(false);
-		JButton js2 = new JButton("2");
+		js2 = new JButton("2");
 		js2.setBounds(230, 450, 50, 30);
 		js2.setEnabled(false);
-		JButton js3 = new JButton("3");
+		js3 = new JButton("3");
 		js3.setBounds(280, 450, 50, 30);
 		js3.setEnabled(false);
-		JButton js4 = new JButton("4");
+		js4 = new JButton("4");
 		js4.setBounds(330, 450, 50, 30);
 		js4.setEnabled(false);
-		JButton js5 = new JButton("5");
+		js5 = new JButton("5");
 		js5.setBounds(380, 450, 50, 30);
 		js5.setEnabled(false);
-		JButton js6 = new JButton("6");
+		js6 = new JButton("6");
 		js6.setBounds(430, 450, 50, 30);
 		js6.setEnabled(false);
-		JButton js7 = new JButton("7");
+		js7 = new JButton("7");
 		js7.setBounds(480, 450, 50, 30);
 		js7.setEnabled(false);
-		JButton js8 = new JButton("8");
+		js8 = new JButton("8");
 		js8.setBounds(530, 450, 50, 30);
 		js8.setEnabled(false);
-		JButton js9 = new JButton("9");
+		js9 = new JButton("9");
 		js9.setBounds(580, 450, 50, 30);
 		js9.setEnabled(false);
-		
+
 		add(js1);
 		add(js2);
 		add(js3);
@@ -100,10 +109,9 @@ public class Iniciado extends JFrame {
 		add(js7);
 		add(js8);
 		add(js9);
-		
-		
-		
-		
+
+		ClickButton click = new ClickButton(this);
+
 		for (i = 0; i < 9; i++) {
 			for (c = 0; c < 9; c++) {
 				cuadros[i][c] = new JTextField();
@@ -111,19 +119,23 @@ public class Iniciado extends JFrame {
 
 				if ((i < 3 && (c < 3 || c > 5)) || (i > 5 && (c < 3 || c > 5))
 						|| ((i > 2 && i < 6) && (c > 2 && c < 6))) {
-					cuadros[i][c].setBackground(new Color(232, 232, 232));
+					cuadros[i][c].setBackground(new Color(245, 245, 245));
 				}
+				
+				cuadros[i][c].setEnabled(false);
+				cuadros[i][c].setFont(new Font("ARIAL", 1, 20));
+				cuadros[i][c].setForeground(Color.MAGENTA);
 
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
-				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1,js1,js2,js3,js4,js5,js6,js7,js8,js9));
+				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1, js1, js2, js3,
+						js4, js5, js6, js7, js8, js9, click));
 
 				verificar = "";
 
 				add(jpsugerencias);
 				add(cuadros[i][c]);
-				
-				
+
 				x += 30;
 
 				contador++;
@@ -131,7 +143,15 @@ public class Iniciado extends JFrame {
 			x = 90;
 			y += 30;
 		}
-	
+		js1.addActionListener(click);
+		js2.addActionListener(click);
+		js3.addActionListener(click);
+		js4.addActionListener(click);
+		js5.addActionListener(click);
+		js6.addActionListener(click);
+		js7.addActionListener(click);
+		js8.addActionListener(click);
+		js9.addActionListener(click);
 		Icon img = new ImageIcon(getClass().getResource("/Image/icons8-undo-48.png"));
 
 		Undo = new JButton(img);
