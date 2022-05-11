@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -15,30 +16,36 @@ public class Click implements MouseListener {
 	JTextField cuadro;
 	JTextField[][] cuadros;
 
-	JPopupMenu jpsugerencias;
-
 	int i, c;
+	
+	JButton js1;
+	JButton js2;
+	JButton js3;
+	JButton js4;
+	JButton js5;
+	JButton js6;
+	JButton js7;
+	JButton js8;
+	JButton js9;
 
-	JFrame in;
 	JLabel jsugerencias1;
-	JMenuItem uno = new JMenuItem("1");
-	JMenuItem dos = new JMenuItem("2");
-	JMenuItem tres = new JMenuItem("3");
-	JMenuItem cuatro = new JMenuItem("4");
-	JMenuItem cinco = new JMenuItem("5");
-	JMenuItem seis = new JMenuItem("6");
-	JMenuItem siete = new JMenuItem("7");
-	JMenuItem ocho = new JMenuItem("8");
-	JMenuItem nueve = new JMenuItem("9");
 
-	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JPopupMenu jpsugerencias, JFrame in, JLabel jsugerencias1) {
+
+	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9) {
 		this.cuadro = cuadro;
 		this.cuadros = cuadros;
-		this.in = in;
 		this.i = i;
 		this.c = c;
-		this.jpsugerencias = jpsugerencias;
 		this.jsugerencias1 = jsugerencias1;
+		this.js1 = js1;
+		this.js2 = js2;
+		this.js3 = js3;
+		this.js4 = js4;
+		this.js5 = js5;
+		this.js6 = js6;
+		this.js7 = js7;
+		this.js8 = js8;
+		this.js9 = js9;
 		
 	}
 
@@ -73,7 +80,6 @@ public class Click implements MouseListener {
 			
 			String ver = "";
 			//jpsugerencias.
-			jpsugerencias.show(in, arg0.getX(), arg0.getY());
 			System.out.println("i = " + i + " c = " + c);
 			String sug = "";
 			for (int i1 = 0; i1 < 9; i1++) {
@@ -157,109 +163,147 @@ public class Click implements MouseListener {
 			//
 			
 			if (!sug.contains("1")) {
-				uno.addActionListener(new ActionListener() {
+				js1.setEnabled(true);
+				js1.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js1.setEnabled(false);
 						cuadro.setText("1");
-						
 					}
 				});
-				jpsugerencias.add(uno);
+				
 				
 				ver += "1 ";
 				
+			}else {
+				js1.setEnabled(false);
 			}
 
 			if (!sug.contains("2")) {
-				dos.addActionListener(new ActionListener() {
+				js2.setEnabled(true);
+				js2.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js2.setEnabled(false);
 						cuadro.setText("2");
-						
 					}
 				});
-				jpsugerencias.add(dos);
+				
+
 				ver += "2 ";
+			}else {
+				js2.setEnabled(false);
 			}
+			
 			if (!sug.contains("3")) {
-				tres.addActionListener(new ActionListener() {
+				js3.setEnabled(true);
+				js3.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js3.setEnabled(false);
 						cuadro.setText("3");
-						
 					}
 				});
-				jpsugerencias.add(tres);
+				
+				
 				ver += "3 ";
+			}else {
+				js3.setEnabled(false);
 			}
+			
 			if (!sug.contains("4")) {
-				cuatro.addActionListener(new ActionListener() {
+				js4.setEnabled(true);
+				js4.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js4.setEnabled(false);
 						cuadro.setText("4");
-						
 					}
 				});
-				jpsugerencias.add(cuatro);
+				
+				
 				ver += "4 ";
+			}else {
+				js4.setEnabled(false);
 			}
+			
 			if (!sug.contains("5")) {
-				cinco.addActionListener(new ActionListener() {
+				js5.setEnabled(true);
+				js5.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js5.setEnabled(false);
 						cuadro.setText("5");
-						
 					}
 				});
-				jpsugerencias.add(cinco);
+				 
 				ver += "5 ";
+			}else {
+				js5.setEnabled(false);
 			}
+			
 			if (!sug.contains("6")) {
-				seis.addActionListener(new ActionListener() {
+				js6.setEnabled(true);
+				js6.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js6.setEnabled(false);
 						cuadro.setText("6");
-						
 					}
 				});
-				jpsugerencias.add(seis);
+				
 				ver += "6 ";
+			}else {
+				js6.setEnabled(false);
 			}
+			
 			if (!sug.contains("7")) {
-				siete.addActionListener(new ActionListener() {
+				js7.setEnabled(true);
+				js7.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js7.setEnabled(false);
 						cuadro.setText("7");
-						
 					}
 				});
-				jpsugerencias.add(siete);
+				
 				ver += "7 ";
+			}else {
+				js7.setEnabled(false);
 			}
+			
 			if (!sug.contains("8")) {
-				ocho.addActionListener(new ActionListener() {
+				js8.setEnabled(true);
+				js8.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js8.setEnabled(false);
 						cuadro.setText("8");
-						
 					}
 				});
-				jpsugerencias.add(ocho);
+				
 				ver += "8 ";
+			}else {
+				js8.setEnabled(false);
 			}
+			
 			if (!sug.contains("9")) {
-				nueve.addActionListener(new ActionListener() {
+				js9.setEnabled(true);
+				js9.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						js9.setEnabled(false);
 						cuadro.setText("9");
-						
 					}
 				});
-				jpsugerencias.add(nueve);
+				
 				ver += "9 ";
+			}else {
+				js9.setEnabled(false);
 			}
 			
 			System.out.println(sug);
+
 			
 			jsugerencias1.setText(ver);
 		}

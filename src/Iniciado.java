@@ -63,17 +63,45 @@ public class Iniciado extends JFrame {
 		x = y = 90;
 		contador = 0;
 		
+		JButton js1 = new JButton("1");
+		js1.setBounds(180, 450, 50, 30);
+		js1.setEnabled(false);
+		JButton js2 = new JButton("2");
+		js2.setBounds(230, 450, 50, 30);
+		js2.setEnabled(false);
+		JButton js3 = new JButton("3");
+		js3.setBounds(280, 450, 50, 30);
+		js3.setEnabled(false);
+		JButton js4 = new JButton("4");
+		js4.setBounds(330, 450, 50, 30);
+		js4.setEnabled(false);
+		JButton js5 = new JButton("5");
+		js5.setBounds(380, 450, 50, 30);
+		js5.setEnabled(false);
+		JButton js6 = new JButton("6");
+		js6.setBounds(430, 450, 50, 30);
+		js6.setEnabled(false);
+		JButton js7 = new JButton("7");
+		js7.setBounds(480, 450, 50, 30);
+		js7.setEnabled(false);
+		JButton js8 = new JButton("8");
+		js8.setBounds(530, 450, 50, 30);
+		js8.setEnabled(false);
+		JButton js9 = new JButton("9");
+		js9.setBounds(580, 450, 50, 30);
+		js9.setEnabled(false);
 		
-
-		JMenuItem uno = new JMenuItem("1");
-		JMenuItem dos = new JMenuItem("2");
-		JMenuItem tres = new JMenuItem("3");
-		JMenuItem cuatro = new JMenuItem("4");
-		JMenuItem cinco = new JMenuItem("5");
-		JMenuItem seis = new JMenuItem("6");
-		JMenuItem siete = new JMenuItem("7");
-		JMenuItem ocho = new JMenuItem("8");
-		JMenuItem nueve = new JMenuItem("9");
+		add(js1);
+		add(js2);
+		add(js3);
+		add(js4);
+		add(js5);
+		add(js6);
+		add(js7);
+		add(js8);
+		add(js9);
+		
+		
 		
 		
 		for (i = 0; i < 9; i++) {
@@ -88,12 +116,24 @@ public class Iniciado extends JFrame {
 
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
-				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jpsugerencias, this, jsugerencias1));
+				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1,js1,js2,js3,js4,js5,js6,js7,js8,js9));
 
 				verificar = "";
 
 				add(jpsugerencias);
 				add(cuadros[i][c]);
+				
+				
+				
+			/*jpsugerencias.remove(uno);
+				jpsugerencias.remove(dos);
+				jpsugerencias.remove(tres);
+				jpsugerencias.remove(cuatro);
+				jpsugerencias.remove(cinco);
+				jpsugerencias.remove(seis);
+				jpsugerencias.remove(siete);
+				jpsugerencias.remove(ocho);
+				jpsugerencias.remove(nueve);*/
 				x += 30;
 
 				contador++;
