@@ -75,7 +75,9 @@ public class Click implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
+
 		if (arg0.isPopupTrigger()) {
+			
 			
 			
 			String ver = "";
@@ -302,11 +304,14 @@ public class Click implements MouseListener {
 				js9.setEnabled(false);
 			}
 			
+			
 			System.out.println(sug);
 
 			
 			jsugerencias1.setText(ver);
 		}
+		
+		
 		
 	}
 

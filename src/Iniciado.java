@@ -124,16 +124,6 @@ public class Iniciado extends JFrame {
 				add(cuadros[i][c]);
 				
 				
-				
-			/*jpsugerencias.remove(uno);
-				jpsugerencias.remove(dos);
-				jpsugerencias.remove(tres);
-				jpsugerencias.remove(cuatro);
-				jpsugerencias.remove(cinco);
-				jpsugerencias.remove(seis);
-				jpsugerencias.remove(siete);
-				jpsugerencias.remove(ocho);
-				jpsugerencias.remove(nueve);*/
 				x += 30;
 
 				contador++;
