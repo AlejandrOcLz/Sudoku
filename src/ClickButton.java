@@ -34,7 +34,7 @@ public class ClickButton implements ActionListener {
 						fin = false;
 					}
 					sudoku[i2][c2] = cuadros[i2][c2].getText();
-					System.out.print(sudoku[i2][c2]);
+					System.out.print(sudoku[i2][c2]+" ");
 				}
 				System.out.println();
 			}
@@ -51,7 +51,7 @@ public class ClickButton implements ActionListener {
 						fin = false;
 					}
 					sudoku[i2][c2] = cuadros[i2][c2].getText();
-					System.out.print(sudoku[i2][c2]);
+					System.out.print(sudoku[i2][c2]+" ");
 				}
 				System.out.println();
 			}
@@ -78,7 +78,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -105,7 +105,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -132,7 +132,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -159,7 +159,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -186,7 +186,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -213,7 +213,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -240,7 +240,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
@@ -267,7 +267,7 @@ public class ClickButton implements ActionListener {
 									fin = false;
 								}
 								sudoku[i2][c2] = cuadros[i2][c2].getText();
-								System.out.print(sudoku[i2][c2]);
+								System.out.print(sudoku[i2][c2]+" ");
 							}
 							System.out.println();
 						}
