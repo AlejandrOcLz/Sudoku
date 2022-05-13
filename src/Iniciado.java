@@ -21,6 +21,8 @@ public class Iniciado extends JFrame {
 
 	JTextField[][] cuadros = new JTextField[9][9];
 	JPopupMenu jpsugerencias = new JPopupMenu();
+	
+	MatrizSudoku ms = new MatrizSudoku();
 
 	JLabel jsugerencias1;
 
