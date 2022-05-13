@@ -33,9 +33,10 @@ public class Click implements MouseListener {
 
 	JLabel jsugerencias1;
 	ClickButton click;
+	String[][] sudoku;
 
 
-	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9, JButton js0, ClickButton click, boolean verificar) {
+	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9, JButton js0, ClickButton click, boolean verificar, String[][] sudoku) {
 		this.cuadro = cuadro;
 		this.cuadros = cuadros;
 		this.i = i;
@@ -53,6 +54,7 @@ public class Click implements MouseListener {
 		this.js0 = js0;
 		this.click = click;
 		this.verificar = verificar;
+		this.sudoku = sudoku;
 
 		
 	}
@@ -71,7 +73,20 @@ public class Click implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		boolean fin = true;
+		for (int i2 = 0; i2 < 9; i2++) {
+			for (int c2 = 0; c2 < 9; c2++) {
+				if(cuadros[i2][c2].getText().contains("-")) {
+					fin = false;
+				}
+				sudoku[i2][c2] = cuadros[i2][c2].getText();
+				System.out.print(sudoku[i2][c2]);
+			}
+			System.out.println();
+		}
+		if(fin) {
+			System.out.print("Fin del juego");
+		}
 
 	}
 

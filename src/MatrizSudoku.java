@@ -8,7 +8,7 @@ public class MatrizSudoku {
 	/* Números de almacenamiento de matriz */
 	private static int[][] n = new int[9][9];
 	String[][] sudoku = new String[9][9];
-	/** Generar una matriz fuente de números aleatorios a partir de los cuales se generan números aleatorios */
+	/* Generar una matriz fuente de números aleatorios a partir de los cuales se generan números aleatorios */
 	private static int[] num = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	
 	public MatrizSudoku(){
@@ -17,7 +17,7 @@ public class MatrizSudoku {
 		// resultado de salida
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
-				System.out.print(sudoku[i][j] + " ");
+				System.out.print(n[i][j] + " ");
 			}
 			System.out.println();
 		}

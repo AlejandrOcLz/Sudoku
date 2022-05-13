@@ -119,7 +119,7 @@ public class Iniciado extends JFrame {
 		add(js9);
 		add(js0);
 
-		ClickButton click = new ClickButton(this);
+		ClickButton click = new ClickButton(this);;
 
 		for (i = 0; i < 9; i++) {
 			for (c = 0; c < 9; c++) {
@@ -147,7 +147,7 @@ public class Iniciado extends JFrame {
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
 				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1, js1, js2, js3,
-						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c]));
+						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c],ms.sudoku));
 
 				verificar = "";
 
@@ -171,6 +171,8 @@ public class Iniciado extends JFrame {
 				}
 			}
 			System.out.println();
+			System.out.print("\033[H\033[2J");
+		    System.out.flush();
 		}
 		
 		if(fin) {
