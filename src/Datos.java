@@ -1,11 +1,11 @@
 import java.util.Stack;
 
 public class Datos {
-	
-	Stack pilad = new Stack();
-	Stack pilar = new Stack();
-	Stack pilaaux = new Stack();
-    Stack pilah = new Stack();
+	//pilas de almacenamiento 
+	Stack pilad = new Stack();//pila deshacer
+	Stack pilar = new Stack();//pila rehacer
+	Stack pilaaux = new Stack();//pila auxicila para no perder los datos al relisar un listar 
+    Stack pilah = new Stack();//pila historial 
     String auxiliar;
     
 	public Datos() {
@@ -15,7 +15,9 @@ public class Datos {
 	}
 	
 	public void agregar(String h) {
-		pilah.push(h);
+		pilah.push(h);// push nos permite almacemar la informacion en la pila 
+		System.out.println(pilah.peek());
+		// almacenamos en ambas pilas para de esta manera poder hacer un deshacer sin eliminar la informacion almacenada en el historial
 		pilad.push(h);
 	}
 	
@@ -24,6 +26,7 @@ public class Datos {
 	}*/
 	
 	public void listar() {
+		System.out.println("******HISTORIAL******");
 		while(pilah.empty()==false) {
 			System.out.println(pilah.peek());
 			auxiliar=(String) pilah.pop();
@@ -35,20 +38,27 @@ public class Datos {
 		}
 	}
 	
-	public void deshacer() {
-		auxiliar=(String) pilad.pop();
-		pilar.push(auxiliar);
+	public String deshacer() {
+		if(!pilad.empty()) {
+			auxiliar=(String) pilad.pop();
+			pilar.push(auxiliar);
+			String[] separar = auxiliar.split(",");
+			pilah.push(separar[0]+","+separar[1]+","+separar[3]+","+separar[2]+","+"1");
+			
+			return auxiliar;
+		}
+		return "";
 	}
 	
-	public void rehacer() {
+	public String rehacer() {
+		if(!pilar.empty()) {
 		auxiliar=(String) pilar.pop();
 		pilad.push(auxiliar);
+		String[] separar = auxiliar.split(",");
+		pilah.push(separar[0]+","+separar[1]+","+separar[3]+","+separar[2]+","+"2");
+		return auxiliar;
+		}
+		return "";
 	}
-	/*public static void main(String[] args) {
-		Datos d = new Datos();
-		d.listar();
-
-	}*/
-	
 
 }

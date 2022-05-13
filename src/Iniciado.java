@@ -22,6 +22,7 @@ public class Iniciado extends JFrame {
 	JTextField[][] cuadros = new JTextField[9][9];
 	boolean[][] verificarI = new boolean[9][9];
 	JPopupMenu jpsugerencias = new JPopupMenu();
+	Datos datospila = new Datos();
 	
 	MatrizSudoku ms = new MatrizSudoku();
 
@@ -29,6 +30,7 @@ public class Iniciado extends JFrame {
 
 	JButton Undo;
 	JButton Redo;
+	JButton Histo;
 	public JButton js1;
 	public JButton js2;
 	public JButton js3;
@@ -119,7 +121,11 @@ public class Iniciado extends JFrame {
 		add(js9);
 		add(js0);
 
+<<<<<<< HEAD
 		ClickButton click = new ClickButton(this);;
+=======
+		ClickButton click = new ClickButton(this,datospila);
+>>>>>>> 4cfc7381c997bd598796676c4ae9fa1e8647ecb8
 
 		for (i = 0; i < 9; i++) {
 			for (c = 0; c < 9; c++) {
@@ -147,7 +153,11 @@ public class Iniciado extends JFrame {
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
 				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1, js1, js2, js3,
+<<<<<<< HEAD
 						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c],ms.sudoku));
+=======
+						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c], datospila));
+>>>>>>> 4cfc7381c997bd598796676c4ae9fa1e8647ecb8
 
 				verificar = "";
 
@@ -196,7 +206,42 @@ public class Iniciado extends JFrame {
 		Undo.setContentAreaFilled(false);
 		Undo.setBorderPainted(false);
 		Undo.isBorderPainted();
+		Undo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String tem = datospila.deshacer();
+				if(tem.length()>0) {
+					String[] separar = tem.split(",");
+					int x =Integer.parseInt(separar[0]);
+					int y =Integer.parseInt(separar[1]);
+					cuadros[x][y].setText(separar[3]);
+				}
+				
+			}
+		});
 		add(Undo);
+		
+		Icon img2 = new ImageIcon(getClass().getResource("Image/icons8-time-machine-48 (1).png"));
+		Histo = new JButton(img2);
+		Histo.setBounds(200, 370, 48, 48);
+		Histo.setContentAreaFilled(false);
+		Histo.setBorderPainted(false);
+		Histo.isBorderPainted();
+		Histo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			    
+				if(!datospila.pilah.empty()) {
+					datospila.listar();
+				}else {
+					System.out.println("El historial esta vacio");
+				}
+				
+			}
+		});
+		add(Histo);
 
 		img = new ImageIcon(getClass().getResource("/Image/icons8-redo-48.png"));
 
@@ -205,6 +250,19 @@ public class Iniciado extends JFrame {
 		Redo.setContentAreaFilled(false);
 		Redo.setBorderPainted(false);
 		Redo.isBorderPainted();
+		Redo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String tem = datospila.rehacer();
+				if(tem.length()>0) {
+					String[] separar = tem.split(",");
+					int x =Integer.parseInt(separar[0]);
+					int y =Integer.parseInt(separar[1]);
+					cuadros[x][y].setText(separar[2]);
+				}
+			}
+		});
 		add(Redo);
 
 		JLabel jsugerencias = new JLabel("SUGERENCIAS: ");
