@@ -41,6 +41,9 @@ public class ClickButton implements ActionListener {
 		} else if (e.getSource().equals(in.js9)) {
 			tf.setText("9");
 			in.js9.setEnabled(false);
+		} else if (e.getSource().equals(in.js0)) {
+			tf.setText("-");
+			in.js0.setEnabled(false);
 		}
 	}
 

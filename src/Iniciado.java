@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 public class Iniciado extends JFrame {
 
 	JTextField[][] cuadros = new JTextField[9][9];
+	boolean[][] verificarI = new boolean[9][9];
 	JPopupMenu jpsugerencias = new JPopupMenu();
 	
 	MatrizSudoku ms = new MatrizSudoku();
@@ -37,6 +38,8 @@ public class Iniciado extends JFrame {
 	public JButton js7;
 	public JButton js8;
 	public JButton js9;
+	public JButton js0;
+	
 
 	String Nombre;
 	int x, y;
@@ -101,6 +104,9 @@ public class Iniciado extends JFrame {
 		js9 = new JButton("9");
 		js9.setBounds(580, 450, 50, 30);
 		js9.setEnabled(false);
+		js0 = new JButton("-");
+		js0.setBounds(630, 450, 50, 30);
+		js0.setEnabled(false);
 
 		add(js1);
 		add(js2);
@@ -111,6 +117,7 @@ public class Iniciado extends JFrame {
 		add(js7);
 		add(js8);
 		add(js9);
+		add(js0);
 
 		ClickButton click = new ClickButton(this);
 
@@ -127,11 +134,20 @@ public class Iniciado extends JFrame {
 				cuadros[i][c].setEnabled(false);
 				cuadros[i][c].setFont(new Font("ARIAL", 1, 20));
 				cuadros[i][c].setForeground(Color.MAGENTA);
+				
+				
+				cuadros[i][c].setText(ms.sudoku[i][c]);
+				
+				if(ms.sudoku[i][c].contains("-")) {
+					verificarI[i][c] = true;
+				}else {
+					verificarI[i][c] = false;
+				}
 
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
 				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1, js1, js2, js3,
-						js4, js5, js6, js7, js8, js9, click));
+						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c]));
 
 				verificar = "";
 
@@ -145,6 +161,22 @@ public class Iniciado extends JFrame {
 			x = 90;
 			y += 30;
 		}
+		boolean fin = true;
+		for (i = 0; i < 9; i++) {
+			for (c = 0; c < 9; c++) {
+				ms.sudoku[i][c] = cuadros[i][c].getText();
+				System.out.print(ms.sudoku[i][c] + " ");
+				if(ms.sudoku[i][c].contains("-")) {
+					fin = false;
+				}
+			}
+			System.out.println();
+		}
+		
+		if(fin) {
+			System.out.println("Fin del juego");
+		}
+		
 		js1.addActionListener(click);
 		js2.addActionListener(click);
 		js3.addActionListener(click);
@@ -154,6 +186,7 @@ public class Iniciado extends JFrame {
 		js7.addActionListener(click);
 		js8.addActionListener(click);
 		js9.addActionListener(click);
+		js0.addActionListener(click);
 		Icon img = new ImageIcon(getClass().getResource("/Image/icons8-undo-48.png"));
 
 		Undo = new JButton(img);
