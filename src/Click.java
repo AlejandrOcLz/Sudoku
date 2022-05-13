@@ -27,12 +27,15 @@ public class Click implements MouseListener {
 	JButton js7;
 	JButton js8;
 	JButton js9;
+	JButton js0;
+	
+	boolean verificar;
 
 	JLabel jsugerencias1;
 	ClickButton click;
 
 
-	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9, ClickButton click) {
+	public Click(JTextField cuadro, JTextField[][] cuadros, int i, int c, JLabel jsugerencias1, JButton js1, JButton js2, JButton js3,JButton js4,JButton js5,JButton js6,JButton js7,JButton js8,JButton js9, JButton js0, ClickButton click, boolean verificar) {
 		this.cuadro = cuadro;
 		this.cuadros = cuadros;
 		this.i = i;
@@ -47,7 +50,9 @@ public class Click implements MouseListener {
 		this.js7 = js7;
 		this.js8 = js8;
 		this.js9 = js9;
+		this.js0 = js0;
 		this.click = click;
+		this.verificar = verificar;
 
 		
 	}
@@ -164,7 +169,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("1")) {
-				js1.setEnabled(true);
+				js1.setEnabled(verificar);
 				
 				
 				ver += "1 ";
@@ -174,15 +179,15 @@ public class Click implements MouseListener {
 			}
 
 			if (!sug.contains("2")) {
-				js2.setEnabled(true);
-				System.out.println("i = " + i + " c = " + c);
+				js2.setEnabled(verificar);
+
 				ver += "2 ";
 			}else {
 				js2.setEnabled(false);
 			}
 			
 			if (!sug.contains("3")) {
-				js3.setEnabled(true);
+				js3.setEnabled(verificar);
 				
 				ver += "3 ";
 			}else {
@@ -190,7 +195,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("4")) {
-				js4.setEnabled(true);
+				js4.setEnabled(verificar);
 				
 				
 				ver += "4 ";
@@ -199,7 +204,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("5")) {
-				js5.setEnabled(true);
+				js5.setEnabled(verificar);
 				 
 				ver += "5 ";
 			}else {
@@ -207,7 +212,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("6")) {
-				js6.setEnabled(true);
+				js6.setEnabled(verificar);
 				
 				ver += "6 ";
 			}else {
@@ -215,7 +220,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("7")) {
-				js7.setEnabled(true);
+				js7.setEnabled(verificar);
 				
 				ver += "7 ";
 			}else {
@@ -223,7 +228,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("8")) {
-				js8.setEnabled(true);
+				js8.setEnabled(verificar);
 				
 				ver += "8 ";
 			}else {
@@ -231,7 +236,7 @@ public class Click implements MouseListener {
 			}
 			
 			if (!sug.contains("9")) {
-				js9.setEnabled(true);
+				js9.setEnabled(verificar);
 				
 				ver += "9 ";
 			}else {
@@ -239,8 +244,8 @@ public class Click implements MouseListener {
 			}
 			
 			
-			System.out.println(sug);
-
+			js0.setEnabled(verificar);
+				
 			
 			jsugerencias1.setText(ver);
 		}
