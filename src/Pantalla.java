@@ -11,6 +11,7 @@ public class Pantalla extends JFrame{
 	
 	JTextField jtnombre;
 	JButton jiniciar;
+	String Nombre;
 
 	public Pantalla() {
 		super ("SUDOKU");
@@ -40,8 +41,8 @@ public class Pantalla extends JFrame{
 		jiniciar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				Iniciado i = new Iniciado();
-				i.Nombre = jtnombre.getText();
+				Nombre = jtnombre.getText();
+				Iniciado i = new Iniciado(Nombre);
 				dispose();
 				
 			}

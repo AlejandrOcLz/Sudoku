@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -59,8 +60,11 @@ public class Iniciado extends JFrame {
 	int c2 = 0;
 	String number = "";
 
-	public Iniciado() {
+	public Iniciado(String Nombre) {
 		super("SUDOKU");
+		
+		this.Nombre = Nombre;
+		
 		setSize(800, 600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -78,6 +82,8 @@ public class Iniciado extends JFrame {
 		jsugerencias1 = new JLabel();
 		x = y = 90;
 		contador = 0;
+		
+		
 
 		js1 = new JButton("1");
 		js1.setBounds(180, 450, 50, 30);
@@ -121,11 +127,8 @@ public class Iniciado extends JFrame {
 		add(js9);
 		add(js0);
 
-<<<<<<< HEAD
-		ClickButton click = new ClickButton(this);;
-=======
 		ClickButton click = new ClickButton(this,datospila);
->>>>>>> 4cfc7381c997bd598796676c4ae9fa1e8647ecb8
+
 
 		for (i = 0; i < 9; i++) {
 			for (c = 0; c < 9; c++) {
@@ -153,11 +156,7 @@ public class Iniciado extends JFrame {
 				t = contador;
 				cuadros[i][c].setHorizontalAlignment(JTextField.CENTER);
 				cuadros[i][c].addMouseListener(new Click(cuadros[i][c], cuadros, i, c, jsugerencias1, js1, js2, js3,
-<<<<<<< HEAD
-						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c],ms.sudoku));
-=======
-						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c], datospila));
->>>>>>> 4cfc7381c997bd598796676c4ae9fa1e8647ecb8
+						js4, js5, js6, js7, js8, js9, js0, click, verificarI[i][c],ms.sudoku, datospila, Nombre));
 
 				verificar = "";
 
@@ -170,23 +169,6 @@ public class Iniciado extends JFrame {
 			}
 			x = 90;
 			y += 30;
-		}
-		boolean fin = true;
-		for (i = 0; i < 9; i++) {
-			for (c = 0; c < 9; c++) {
-				ms.sudoku[i][c] = cuadros[i][c].getText();
-				System.out.print(ms.sudoku[i][c] + " ");
-				if(ms.sudoku[i][c].contains("-")) {
-					fin = false;
-				}
-			}
-			System.out.println();
-			System.out.print("\033[H\033[2J");
-		    System.out.flush();
-		}
-		
-		if(fin) {
-			System.out.println("Fin del juego");
 		}
 		
 		js1.addActionListener(click);

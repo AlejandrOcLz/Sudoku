@@ -14,6 +14,7 @@ public class MatrizSudoku {
 	public MatrizSudoku(){
 		int[][] shuDu=generateShuDu();
 		acomodar();
+		
 		// resultado de salida
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
